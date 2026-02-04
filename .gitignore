@@ -1,0 +1,5 @@
+__pycache__
+original_code/__pycache__
+persona_code/__pycache__
+*.out
+*.err
