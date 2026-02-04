@@ -10,12 +10,13 @@ from vllm import LLM, SamplingParams
 from prompt_templates import math_template, math_solution_template
 
 MODEL = "Qwen/Qwen3-8B"
+#MODEL = "allenai/Olmo-3-7B-Think"
 
 QUESTIONS_PATH = Path(
-    "/n/holylabs/LABS/dam_lab/Users/hdiaz/synthetic_personas/original_code/examples/500_math_examples.jsonl"
+    "/n/holylabs/LABS/dam_lab/Users/hdiaz/synthetic_personas/original_code/examples/500_math_examples_qwen38b.jsonl"
 )
 SOLUTIONS_PATH = Path(
-    "/n/holylabs/LABS/dam_lab/Users/hdiaz/synthetic_personas/original_code/examples/500_math_solutions.jsonl"
+    "/n/holylabs/LABS/dam_lab/Users/hdiaz/synthetic_personas/original_code/examples/500_math_solutions_qwen38b.jsonl"
 )
 
 SYSTEM_PROMPT = "You are a helpful assistant."
@@ -53,7 +54,6 @@ def generate_questions(llm, tokenizer, out_path, n):
 
     sampling = SamplingParams(
         temperature=0.7,
-        top_p=0.9,
         max_tokens=4096,
         seed=0,
     )
@@ -79,7 +79,6 @@ def generate_solutions(llm, tokenizer, in_path, out_path):
 
     sampling = SamplingParams(
         temperature=0.7,
-        top_p=0.95,
         max_tokens=4096,
         seed=0,
     )
