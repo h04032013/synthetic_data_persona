@@ -32,7 +32,7 @@ def main(args):
     persona_dataset = load_dataset("proj-persona/PersonaHub", data_files="persona.jsonl")['train']
 
     # 01/26/26 haylin added this line
-    persona_dataset = persona_dataset.select(range(500))
+    persona_dataset = persona_dataset.select(range(20))
     
     print(f"Total number of input personas: {len(persona_dataset['persona'])}")
 
